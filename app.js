@@ -15,15 +15,15 @@ app.use(bodyParser.urlencoded({
 
 var routes = require('./lib/routes.js');
 
-app.get('/products/:productId', routes.getProduct);
-app.get('/products/', routes.getProducts);
+app.get('/:productId', routes.getProduct);
+app.get('/', routes.getProducts);
 
 //error APIs
 app.get('/*',function (req,res)
 {
     err={};
     err.code=400;
-    err.msg="Provide a valid path";
+    err.msg="Please provide a valid path";
     res.status(err.code).send(JSON.stringify(err, undefined, 2));
 
 });
