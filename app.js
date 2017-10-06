@@ -15,9 +15,9 @@ app.use(bodyParser.urlencoded({
 
 var routes = require('./lib/routes.js');
 
-app.get('/:productId', routes.getProduct);
-app.get('/', routes.getProducts);
-
+app.get('/products/:productId', routes.getProduct);
+app.get('/products/', routes.getProducts);
+app.post('/payment/', routes.createPayment);
 //error APIs
 app.get('/*',function (req,res)
 {
